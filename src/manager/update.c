@@ -5,6 +5,7 @@
  * The function first searches for the account in the array and then
  * if the user is found, prompts the user to select which account to 
  * update and which field of the account to update.
+ * In the end the accounts are sorted again.
  * 
  * @param accounts The accounts where to search
  * @param currentAccounts The number of accounts
@@ -13,7 +14,7 @@
  */
 void updateAccount(Account* accounts, size_t currentAccounts, const char* username, size_t* occurrences)
 {
-    int searchResult = searchAccount(accounts, currentAccounts, username, occurrences);
+    int i, searchResult = searchAccount(accounts, currentAccounts, username, occurrences);
     size_t choice, index;
 
     if(searchResult == NOT_FOUND)
@@ -58,5 +59,8 @@ void updateAccount(Account* accounts, size_t currentAccounts, const char* userna
         }
     } while(choice <= 0 || choice > 3);
 
+    sort(accounts, sizeof(Account), currentAccounts, &compareAccountsGeneral, ASCENDING);
+
+    pause();
     return;
 }
