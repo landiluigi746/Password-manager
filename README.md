@@ -29,7 +29,7 @@ display - Display all passwords
 search - Search an account by username
 delete - Delete a password
 update - Update an existing account
-set - Set admin account
+admin - Set admin account
 exit - Exit program
 ```
 
