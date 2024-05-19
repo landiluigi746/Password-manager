@@ -10,6 +10,8 @@ int main(void)
     char buf[CMD_STR_SIZE];
     bool adminActive = false;
 
+    srand(time(NULLPTR));
+
     load(accounts, &currentAccounts, &adminAccount, &adminActive);
 
     if(adminActive && login(&adminAccount) == LOGIN_FAILURE)
